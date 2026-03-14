@@ -98,16 +98,10 @@ export default function Hero() {
         >
           <a
             href="#"
-            className="inline-flex items-center px-7 py-3.5 text-base font-semibold text-white rounded-xl transition-all hover:-translate-y-0.5"
-            style={{
-              background: 'linear-gradient(135deg, #3B82F6, #2563EB)',
-              boxShadow: '0 8px 32px rgba(59,130,246,0.45)',
-            }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = '0 12px 40px rgba(59,130,246,0.6)' }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 32px rgba(59,130,246,0.45)' }}
+            className="btn-uiverse"
           >
             {t('hero.cta_primary')}
-            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="ml-2 w-4 h-4 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </a>

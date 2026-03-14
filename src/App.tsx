@@ -8,6 +8,7 @@ import Metrics from './components/Metrics'
 import Roadmap from './components/Roadmap'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
+import ScrollExplanation from './components/ScrollExplanation'
 
 export default function App() {
   const { t } = useTranslation()
@@ -33,6 +34,7 @@ export default function App() {
       <Nav />
       <main>
         <Hero />
+        <ScrollExplanation />
         <TrustBadges />
         <Features />
         <Metrics />
@@ -51,10 +53,10 @@ export default function App() {
       >
         <a
           href="#"
-          className="flex items-center gap-2 px-5 py-3 text-sm font-semibold text-white bg-accent hover:bg-blue-600 rounded-xl shadow-lg shadow-blue-300/40 transition-colors"
+          className="btn-uiverse scale-90 origin-bottom-right shadow-2xl"
         >
           {t('hero.cta_primary')}
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 ml-1 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </a>
