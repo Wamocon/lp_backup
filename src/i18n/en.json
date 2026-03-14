@@ -1,0 +1,166 @@
+{
+  "nav": {
+    "features": "Features",
+    "roadmap": "Roadmap",
+    "faq": "FAQ",
+    "cta": "Documentation"
+  },
+  "hero": {
+    "badge": "v1.0 · Production Ready",
+    "headline_1": "Backup Control.",
+    "headline_2": "Finally Visible.",
+    "subline": "The modular IT management system for SMBs — create, automate and monitor backup jobs. Directly in the browser, on your own server.",
+    "cta_primary": "Documentation",
+    "cta_secondary": "View Demo"
+  },
+  "trust": {
+    "items": [
+      { "title": "Self-hosted", "desc": "Runs on your own server" },
+      { "title": "No Subscription", "desc": "No monthly fees" },
+      { "title": "Open Source", "desc": "Transparent codebase" },
+      { "title": "Made in Germany", "desc": "WAMOCON GmbH" }
+    ]
+  },
+  "features": {
+    "label": "Features",
+    "headline": "Everything you need.",
+    "subline": "No more script chaos. No more guessing. Just green lights.",
+    "items": [
+      {
+        "tag": "Dashboard",
+        "title": "Everything at a glance.",
+        "description": "All backup jobs, their status, last run and next schedule — centralized in the dashboard. Green badges mean: everything is fine.",
+        "points": [
+          "7-day timeline at a glance",
+          "Last and next backup run",
+          "Immediate error notification with log excerpt"
+        ],
+        "screenshot": "/screenshots/dashboard.png",
+        "url": "localhost:5173/dashboard"
+      },
+      {
+        "tag": "Job Management",
+        "title": "Create jobs. Not scripts.",
+        "description": "Configure backup jobs with source, destination and schedule — no terminal, no scripts. Multi-target: back up to NAS and cloud simultaneously.",
+        "points": [
+          "Cron schedule (daily, weekly, monthly)",
+          "Multi-target: NAS + Cloud simultaneously",
+          "Manual start with a single click"
+        ],
+        "screenshot": "/screenshots/backup-plans.png",
+        "url": "localhost:5173/jobs"
+      },
+      {
+        "tag": "Calendar",
+        "title": "Planning at a glance.",
+        "description": "The integrated backup calendar shows all scheduled jobs in a monthly overview. Next backup, past runs, success rate — everything on one page.",
+        "points": [
+          "Monthly calendar with all scheduled jobs",
+          "Next upcoming backup visible",
+          "Runs: Successful / Error overview"
+        ],
+        "screenshot": "/screenshots/calendar.png",
+        "url": "localhost:5173/calendar"
+      },
+      {
+        "tag": "Device Management",
+        "title": "Your hardware. In one place.",
+        "description": "All systems to be backed up documented in one place — with assignment to people, departments and locations. Backup status visible at a glance.",
+        "points": [
+          "Devices linked to person and department",
+          "Backup status per device visible",
+          "Online/Offline detection"
+        ],
+        "screenshot": "/screenshots/devices.png",
+        "url": "localhost:5173/devices"
+      }
+    ]
+  },
+  "metrics": {
+    "label": "WAMOCON by the numbers",
+    "items": [
+      { "value": "0", "unit": "Scripts", "desc": "required" },
+      { "value": "1", "unit": "Dashboard", "desc": "for everything" },
+      { "value": "3+", "unit": "Backup Targets", "desc": "simultaneously" }
+    ]
+  },
+  "roadmap": {
+    "label": "Roadmap",
+    "headline": "Backup today. Platform tomorrow.",
+    "subline": "WAMOCON grows with you. Each version builds on the previous one — invest in a platform, not a one-time tool.",
+    "badge_current": "Current",
+    "badge_planned": "Planned",
+    "versions": [
+      {
+        "version": "v1.0",
+        "status": "current",
+        "title": "Backup Planner",
+        "features": ["Dashboard & 7-day timeline", "Job management", "Email alerts", "Role system (Admin/Guest)", "Log view", "Device management"]
+      },
+      {
+        "version": "v1.1",
+        "status": "planned",
+        "title": "Calendar & Reports",
+        "features": ["Calendar view (Apple-style)", "Weekly/monthly report by email", "Backup types (Full/Incremental/Differential)", "3-2-1 rule check"]
+      },
+      {
+        "version": "v1.2",
+        "status": "planned",
+        "title": "Extended Backups",
+        "features": ["Notebook backup", "GitHub backup", "IT asset management"]
+      },
+      {
+        "version": "v2.0",
+        "status": "planned",
+        "title": "IT Management Platform",
+        "features": ["Network monitor", "License management", "Central reporting dashboard"]
+      }
+    ]
+  },
+  "faq": {
+    "label": "FAQ",
+    "headline": "Frequently asked questions.",
+    "items": [
+      {
+        "q": "How is the WAMOCON Backup Planner installed?",
+        "a": "The Backup Planner runs as a Node.js application on your own server (e.g. Mac Studio, Linux server). Installation typically takes under an hour — detailed steps are described in the documentation."
+      },
+      {
+        "q": "Which backup targets are supported?",
+        "a": "All rclone-compatible targets: Synology NAS, Google Drive, OneDrive, S3, local drives and over 70 other cloud storage providers. rclone is the underlying backup engine."
+      },
+      {
+        "q": "Does my data leave the server?",
+        "a": "No. The WAMOCON Backup Planner runs entirely on your server. There is no external cloud connection, no telemetry and no external dependencies. Your data stays where you want it."
+      },
+      {
+        "q": "Is there a demo?",
+        "a": "Yes. A live demo is available to explore the interface without installation. Contact us for demo access."
+      },
+      {
+        "q": "How much does the WAMOCON Backup Planner cost?",
+        "a": "There is no subscription and no monthly fees. The product is self-hosted and licensed once. All details can be found in the documentation."
+      },
+      {
+        "q": "What tech stack is behind it?",
+        "a": "Frontend: React + TypeScript + TailwindCSS. Backend: Node.js + Express + SQLite. Backup engine: rclone. Process manager: PM2. All proven, all open source."
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "Self-hosted. Made for SMBs. Built in Germany.",
+    "col_product": "Product",
+    "col_resources": "Resources",
+    "col_company": "Company",
+    "features": "Features",
+    "roadmap": "Roadmap",
+    "docs": "Documentation",
+    "github": "GitHub",
+    "changelog": "Changelog",
+    "about": "About WAMOCON",
+    "contact": "Contact",
+    "imprint": "Imprint",
+    "privacy": "Privacy Policy",
+    "copyright": "© 2026 WAMOCON GmbH. All rights reserved."
+  }
+}
