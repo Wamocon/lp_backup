@@ -78,21 +78,27 @@ export default function Metrics() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-20 px-6 bg-brand">
-      <div className="max-w-6xl mx-auto">
-        <p className="text-center text-xs font-bold uppercase tracking-widest text-blue-300 mb-12">
+    <section ref={sectionRef} className="relative py-24 px-6 bg-metrics-animated overflow-hidden">
+      {/* Center glow behind numbers */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse, rgba(59,130,246,0.18) 0%, transparent 70%)' }}
+      />
+
+      <div className="relative max-w-6xl mx-auto">
+        <p className="text-center text-xs font-bold uppercase tracking-widest text-blue-400/60 mb-14">
           {t('metrics.label')}
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
           {items.map((item, i) => (
-            <div key={i} className="flex flex-col items-center gap-1">
+            <div key={i} className="flex flex-col items-center gap-2 py-8 sm:py-0">
               <div className="flex items-baseline gap-2">
-                <span className="text-6xl md:text-7xl font-extrabold text-white tracking-tight tabular-nums">
+                <span className="text-7xl md:text-8xl font-extrabold text-white tracking-tight tabular-nums">
                   <AnimatedNumber value={item.value} isVisible={isVisible} />
                 </span>
-                <span className="text-2xl font-bold text-accent">{item.unit}</span>
+                <span className="text-3xl font-bold text-blue-400">{item.unit}</span>
               </div>
-              <span className="text-sm text-blue-300 font-medium">{item.desc}</span>
+              <span className="text-sm text-blue-300/60 font-medium">{item.desc}</span>
             </div>
           ))}
         </div>

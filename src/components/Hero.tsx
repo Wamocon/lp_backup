@@ -35,8 +35,6 @@ export default function Hero() {
         el.style.transition = `opacity ${ANIM_DURATION}ms ease, transform ${ANIM_DURATION}ms ease`
         el.style.opacity = '1'
         el.style.transform = 'translateY(0)'
-        // Clear transform after transition to avoid CSS stacking context issues
-        // (which would trap position:fixed elements like lightboxes)
         setTimeout(() => {
           el.style.transform = ''
           el.style.transition = ''
@@ -46,31 +44,49 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="pt-20 pb-16 px-6 bg-white">
-      <div className="max-w-6xl mx-auto text-center">
+    <section
+      className="relative pt-20 pb-28 px-6 overflow-hidden"
+      style={{ background: 'linear-gradient(160deg, #060e20 0%, #0c1a35 55%, #1a2f55 100%)' }}
+    >
+      {/* Mesh gradient blobs */}
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[600px] rounded-full pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse, rgba(59,130,246,0.18) 0%, transparent 70%)' }}
+      />
+      <div className="absolute top-16 left-[5%] w-80 h-80 rounded-full pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse, rgba(99,102,241,0.12) 0%, transparent 70%)', filter: 'blur(40px)' }}
+      />
+      <div className="absolute top-16 right-[5%] w-72 h-72 rounded-full pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse, rgba(34,197,94,0.10) 0%, transparent 70%)', filter: 'blur(40px)' }}
+      />
+
+      {/* Dot grid overlay */}
+      <div className="absolute inset-0 bg-dot-grid pointer-events-none" />
+
+      <div className="relative max-w-6xl mx-auto text-center">
         {/* Badge */}
         <div
           ref={badgeRef}
-          className="inline-flex items-center gap-2 px-3 py-1 mb-8 text-xs font-semibold text-success bg-green-50 border border-green-200 rounded-full"
+          className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 text-xs font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/25 rounded-full"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
           {t('hero.badge')}
         </div>
 
         {/* Headline */}
         <h1
           ref={headlineRef}
-          className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-brand tracking-tight leading-[1.1]"
+          className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.1]"
         >
           {t('hero.headline_1')}
           <br />
-          <span className="text-accent">{t('hero.headline_2')}</span>
+          <span className="text-gradient">{t('hero.headline_2')}</span>
         </h1>
 
         {/* Subline */}
         <p
           ref={sublineRef}
-          className="mt-6 text-lg md:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed"
+          className="mt-6 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed"
+          style={{ color: 'rgba(148,163,184,0.85)' }}
         >
           {t('hero.subline')}
         </p>
@@ -82,7 +98,13 @@ export default function Hero() {
         >
           <a
             href="#"
-            className="inline-flex items-center px-6 py-3 text-base font-semibold text-white bg-accent hover:bg-blue-600 rounded-xl shadow-lg shadow-blue-200 transition-all hover:-translate-y-0.5"
+            className="inline-flex items-center px-7 py-3.5 text-base font-semibold text-white rounded-xl transition-all hover:-translate-y-0.5"
+            style={{
+              background: 'linear-gradient(135deg, #3B82F6, #2563EB)',
+              boxShadow: '0 8px 32px rgba(59,130,246,0.45)',
+            }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = '0 12px 40px rgba(59,130,246,0.6)' }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 32px rgba(59,130,246,0.45)' }}
           >
             {t('hero.cta_primary')}
             <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -91,19 +113,41 @@ export default function Hero() {
           </a>
           <a
             href="#features"
-            className="inline-flex items-center px-6 py-3 text-base font-semibold text-brand bg-white border border-gray-200 hover:border-brand rounded-xl transition-all hover:-translate-y-0.5"
+            className="inline-flex items-center px-7 py-3.5 text-base font-semibold text-white/80 hover:text-white bg-white/10 hover:bg-white/15 border border-white/20 hover:border-white/30 rounded-xl transition-all hover:-translate-y-0.5"
           >
             {t('hero.cta_secondary')}
           </a>
         </div>
 
-        {/* Screenshot */}
+        {/* Screenshot with glow border */}
         <div ref={screenshotRef} className="mt-16 max-w-5xl mx-auto">
-          <ScreenshotFrame
-            src="/screenshots/dashboard.png"
-            alt="WAMOCON Backup Planer Dashboard"
-            url="localhost:5173/dashboard"
-          />
+          <div className="relative">
+            {/* Glow behind screenshot */}
+            <div
+              className="absolute -inset-3 rounded-2xl pointer-events-none"
+              style={{ background: 'linear-gradient(135deg, rgba(59,130,246,0.25), rgba(34,197,94,0.12))', filter: 'blur(24px)' }}
+            />
+            <div className="relative">
+              <ScreenshotFrame
+                src="/screenshots/dashboard.png"
+                alt="WAMOCON Backup Planer Dashboard"
+                url="localhost:5173/dashboard"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="mt-14 flex flex-col items-center gap-2">
+          <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/25">Scroll</span>
+          <svg
+            className="w-5 h-5 text-white/25 animate-scroll-bounce"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
         </div>
       </div>
     </section>

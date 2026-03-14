@@ -43,9 +43,12 @@ export default function Roadmap() {
                 key={i}
                 className={`relative rounded-2xl p-6 border ${
                   isCurrent
-                    ? 'bg-brand border-brand text-white shadow-xl shadow-brand/20'
+                    ? 'bg-brand border-brand text-white'
                     : 'bg-white border-gray-200 text-gray-700'
                 }`}
+                style={isCurrent ? {
+                  boxShadow: '0 0 0 1px rgba(59,130,246,0.3), 0 20px 60px rgba(30,58,95,0.5), 0 0 40px rgba(59,130,246,0.15)'
+                } : {}}
               >
                 {/* Version badge */}
                 <div className="flex items-center justify-between mb-4">

@@ -24,3 +24,40 @@ body {
   pointer-events: none;
   border-radius: 0 2px 2px 0;
 }
+
+/* Dot grid overlay — for dark hero */
+.bg-dot-grid {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Gradient text — blue-400 → emerald-400, great on dark backgrounds */
+.text-gradient {
+  background: linear-gradient(135deg, #60a5fa 0%, #34d399 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animated gradient background for Metrics section */
+@keyframes gradientFlow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.bg-metrics-animated {
+  background: linear-gradient(-45deg, #0b172e, #1E3A5F, #1a3a7a, #12233d);
+  background-size: 400% 400%;
+  animation: gradientFlow 14s ease infinite;
+}
+
+/* Bounce scroll indicator */
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50%       { transform: translateY(6px); opacity: 0.8; }
+}
+
+.animate-scroll-bounce {
+  animation: scrollBounce 2s ease-in-out infinite;
+}
