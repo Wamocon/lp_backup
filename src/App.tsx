@@ -8,6 +8,7 @@ import Metrics from './components/Metrics'
 import Roadmap from './components/Roadmap'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
+import Projects from './components/Projects'
 import ScrollExplanation from './components/ScrollExplanation'
 
 export default function App() {
@@ -27,7 +28,10 @@ export default function App() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-white font-sans">
+    <div className="min-h-screen bg-white font-sans relative">
+      {/* Global Noise Texture (Idea 5) */}
+      <div className="fixed inset-0 bg-noise pointer-events-none z-50" />
+      
       {/* Scroll progress bar */}
       <div id="scroll-progress" style={{ width: `${scrollProgress}%` }} />
 
@@ -39,6 +43,7 @@ export default function App() {
         <Features />
         <Metrics />
         <Roadmap />
+        <Projects />
         <FAQ />
       </main>
       <Footer />

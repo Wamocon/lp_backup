@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next'
-import { useStaggerAnimation } from '../hooks/useScrollAnimation'
 
 const ICONS = [
   // Server
@@ -23,26 +22,49 @@ const ICONS = [
 export default function TrustBadges() {
   const { t } = useTranslation()
   const items = t('trust.items', { returnObjects: true }) as Array<{ title: string; desc: string }>
-  const gridRef = useStaggerAnimation(90, 0.2)
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    e.currentTarget.style.setProperty('--x', `${x}px`)
+    e.currentTarget.style.setProperty('--y', `${y}px`)
+  }
+
+  // Triple the items array to ensure a smooth scrolling loop even on ultra-wide screens
+  const marqueeItems = [...items, ...items, ...items]
 
   return (
-    <section className="border-y border-gray-100 bg-gray-50 py-8 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div
-          ref={gridRef as React.RefObject<HTMLDivElement>}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6"
-        >
-          {items.map((item, i) => (
-            <div key={i} className="uiverse-card flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
-              <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-accent shrink-0 shadow-inner">
-                {ICONS[i]}
-              </div>
-              <div className="flex-1">
-                <p className="text-sm font-bold text-gray-900 mb-0.5">{item.title}</p>
-                <p className="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
-              </div>
-            </div>
-          ))}
+    <section className="border-y border-white/5 bg-[#0a1128] py-12 px-6 overflow-hidden">
+      <div className="max-w-[100vw] mx-auto w-full relative">
+        
+        {/* Gradients on the edges to fade out the marquee */}
+        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0a1128] to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0a1128] to-transparent z-10 pointer-events-none" />
+
+        <div className="flex whitespace-nowrap">
+          <div className="flex animate-marquee gap-8 w-max">
+            {marqueeItems.map((item, i) => {
+              // Get original index for the icon
+              const iconIndex = i % ICONS.length
+              
+              return (
+                <div 
+                  key={i} 
+                  onMouseMove={handleMouseMove}
+                  className="spotlight-card px-8 py-6 min-w-[320px] max-w-[320px] flex flex-col items-start gap-4 text-left cursor-default shadow-xl"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 shrink-0 shadow-[0_0_15px_rgba(59,130,246,0.2)]">
+                    {ICONS[iconIndex]}
+                  </div>
+                  <div className="flex-1 whitespace-normal">
+                    <p className="text-base font-bold text-white mb-2">{item.title}</p>
+                    <p className="text-sm text-gray-400 leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>
