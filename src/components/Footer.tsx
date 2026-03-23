@@ -1,7 +1,14 @@
 
+import { useState } from 'react'
+import ImpressumModal from './ImpressumModal'
+import DatenschutzModal from './DatenschutzModal'
 
 export default function Footer() {
+  const [showImpressum, setShowImpressum] = useState(false)
+  const [showDatenschutz, setShowDatenschutz] = useState(false)
+
   return (
+    <>
     <footer className="relative bg-[#040816] text-white pt-24 pb-12 overflow-hidden border-t border-white/5">
       {/* Nebula Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-blue-600/10 blur-[150px] rounded-full pointer-events-none" />
@@ -19,8 +26,8 @@ export default function Footer() {
                 </svg>
               </div>
               <div className="leading-tight">
-                <span className="text-lg font-bold text-white block tracking-tight">WAMOCON</span>
-                <span className="text-xs text-blue-400 font-medium block uppercase tracking-wider">Backup Planer</span>
+                <span className="text-lg font-bold text-white block tracking-tight">BackupPilot</span>
+                <span className="text-xs text-blue-400 font-medium block uppercase tracking-wider">by WAMOCON</span>
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-8">
@@ -88,9 +95,9 @@ export default function Footer() {
 
           {/* Newsletter / CTA */}
           <div className="bg-white/5 border border-white/10 rounded-2xl p-6 relative overflow-hidden">
-            <h4 className="text-white font-bold mb-3 text-base">Bereit für WAMOCON?</h4>
+            <h4 className="text-white font-bold mb-3 text-base">Bereit für BackupPilot?</h4>
             <p className="text-gray-400 text-xs leading-relaxed mb-6">
-              Starten Sie noch heute mit dem modernsten Backup-Planer auf dem Markt.
+              Starten Sie noch heute mit dem modernsten Backup-Tool auf dem Markt.
             </p>
             <a href="#" className="w-full btn-uiverse py-3 text-sm">
               Kostenloses Gespräch
@@ -101,12 +108,21 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-gray-500 text-xs">
-            © {new Date().getFullYear()} WAMOCON. Alle Rechte vorbehalten.
+            © {new Date().getFullYear()} WAMOCON GmbH. Alle Rechte vorbehalten.
           </p>
           <div className="flex gap-8">
-            <a href="#" className="text-gray-500 hover:text-white text-xs transition-colors">Impressum</a>
-            <a href="#" className="text-gray-500 hover:text-white text-xs transition-colors">Datenschutz</a>
-            <a href="#" className="text-gray-500 hover:text-white text-xs transition-colors">AGB</a>
+            <button
+              onClick={() => setShowImpressum(true)}
+              className="text-gray-500 hover:text-white text-xs transition-colors"
+            >
+              Impressum
+            </button>
+            <button
+              onClick={() => setShowDatenschutz(true)}
+              className="text-gray-500 hover:text-white text-xs transition-colors"
+            >
+              Datenschutz
+            </button>
           </div>
           <div className="text-gray-600 text-[10px] font-mono uppercase tracking-widest bg-white/5 px-3 py-1.5 rounded-full border border-white/5">
             Built with React & Framer Motion
@@ -114,5 +130,9 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+
+    {showImpressum && <ImpressumModal onClose={() => setShowImpressum(false)} />}
+    {showDatenschutz && <DatenschutzModal onClose={() => setShowDatenschutz(false)} />}
+    </>
   )
 }

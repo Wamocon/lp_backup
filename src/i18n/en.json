@@ -77,7 +77,7 @@
     ]
   },
   "metrics": {
-    "label": "WAMOCON by the numbers",
+    "label": "BackupPilot by the numbers",
     "items": [
       { "value": "0", "unit": "Scripts", "desc": "required" },
       { "value": "1", "unit": "Dashboard", "desc": "for everything" },
@@ -87,14 +87,14 @@
   "roadmap": {
     "label": "Roadmap",
     "headline": "Backup today. Platform tomorrow.",
-    "subline": "WAMOCON grows with you. Each version builds on the previous one — invest in a platform, not a one-time tool.",
+    "subline": "BackupPilot grows with you. Each version builds on the previous one — invest in a platform, not a one-time tool.",
     "badge_current": "Current",
     "badge_planned": "Planned",
     "versions": [
       {
         "version": "v1.0",
         "status": "current",
-        "title": "Backup Planner",
+        "title": "BackupPilot",
         "features": ["Dashboard & 7-day timeline", "Job management", "Email alerts", "Role system (Admin/Guest)", "Log view", "Device management"]
       },
       {
@@ -122,8 +122,8 @@
     "headline": "Frequently asked questions.",
     "items": [
       {
-        "q": "How is the WAMOCON Backup Planner installed?",
-        "a": "The Backup Planner runs as a Node.js application on your own server (e.g. Mac Studio, Linux server). Installation typically takes under an hour — detailed steps are described in the documentation."
+        "q": "How is BackupPilot installed?",
+        "a": "BackupPilot runs as a Node.js application on your own server (e.g. Mac Studio, Linux server). Installation typically takes under an hour — detailed steps are described in the documentation."
       },
       {
         "q": "Which backup targets are supported?",
@@ -131,15 +131,15 @@
       },
       {
         "q": "Does my data leave the server?",
-        "a": "No. The WAMOCON Backup Planner runs entirely on your server. There is no external cloud connection, no telemetry and no external dependencies. Your data stays where you want it."
+        "a": "No. BackupPilot runs entirely on your server. There is no external cloud connection, no telemetry and no external dependencies. Your data stays where you want it."
       },
       {
         "q": "Is there a demo?",
         "a": "Yes. A live demo is available to explore the interface without installation. Contact us for demo access."
       },
       {
-        "q": "How much does the WAMOCON Backup Planner cost?",
-        "a": "There is no subscription and no monthly fees. The product is self-hosted and licensed once. All details can be found in the documentation."
+        "q": "How much does BackupPilot cost?",
+        "a": "There is no subscription and no monthly fees. BackupPilot is self-hosted and licensed once. All details can be found in the documentation."
       },
       {
         "q": "What tech stack is behind it?",
@@ -157,7 +157,7 @@
     "docs": "Documentation",
     "github": "GitHub",
     "changelog": "Changelog",
-    "about": "About WAMOCON",
+    "about": "About BackupPilot",
     "contact": "Contact",
     "imprint": "Imprint",
     "privacy": "Privacy Policy",
