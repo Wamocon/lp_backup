@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
-import ScreenshotFrame from './ScreenshotFrame'
 import StaggerText from './StaggerText'
 
 interface FeatureItem {
@@ -8,8 +7,6 @@ interface FeatureItem {
   title: string
   description: string
   points: string[]
-  screenshot: string
-  url: string
 }
 
 function BentoBlock({ item, index }: { item: FeatureItem; index: number }) {
@@ -51,9 +48,6 @@ function BentoBlock({ item, index }: { item: FeatureItem; index: number }) {
         </ul>
       </div>
 
-      <div className="relative w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#060e20]">
-        <ScreenshotFrame src={item.screenshot} alt={item.title} url={item.url} />
-      </div>
     </div>
   )
 }

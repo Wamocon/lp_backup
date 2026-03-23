@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next'
 const LANGUAGES = [
   { code: 'de', label: 'DE' },
   { code: 'en', label: 'EN' },
-  { code: 'ru', label: 'RU' },
 ]
 
 export default function Nav() {
@@ -52,14 +51,14 @@ export default function Nav() {
                 isScrolled ? 'text-brand' : 'text-white'
               }`}
             >
-              WAMOCON
+              BackupPilot
             </span>
             <span
               className={`text-xs block -mt-0.5 transition-colors duration-300 ${
                 isScrolled ? 'text-gray-400' : 'text-white/40'
               }`}
             >
-              Backup Planer
+              by WAMOCON
             </span>
           </div>
         </a>

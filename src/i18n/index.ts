@@ -4,7 +4,6 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 
 import de from './de.json'
 import en from './en.json'
-import ru from './ru.json'
 
 i18n
   .use(LanguageDetector)
@@ -13,10 +12,9 @@ i18n
     resources: {
       de: { translation: de },
       en: { translation: en },
-      ru: { translation: ru },
     },
     fallbackLng: 'de',
-    supportedLngs: ['de', 'en', 'ru'],
+    supportedLngs: ['de', 'en'],
     interpolation: { escapeValue: false },
     detection: {
       order: ['localStorage', 'navigator'],
